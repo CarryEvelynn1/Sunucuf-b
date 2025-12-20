@@ -1,0 +1,18 @@
+{
+  "token": "",
+  "clientId": "",
+  "ownerIds": [""],
+  "colors": {
+    "success": "#00FF00",
+    "error": "#FF0000",
+    "warning": "#FFFF00",
+    "info": "#0099FF",
+    "primary": "#7289DA"
+  },
+  "emojis": {
+    "success": "✅",
+    "error": "❌",
+    "warning": "⚠️",
+    "loading": "⏳"
+  }
+}
