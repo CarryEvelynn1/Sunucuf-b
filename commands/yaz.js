@@ -13,7 +13,7 @@ module.exports = {
     .addChannelOption((option) =>
       option
         .setName("kanal")
-        .setDescription("Mesajın gönderileceği kanal (isteğe bağlı)")
+        .setDescription("Mesajın gönderileceği kanal seç ve Owner hariç kullanmasın.")
         .setRequired(false)
     ),
   async execute(interaction) {
@@ -38,7 +38,7 @@ module.exports = {
     } catch (error) {
       console.error("Yaz komutu hatası:", error);
       await interaction.reply({
-        content: `❌ Mesaj gönderilirken hata: \`${error.message}\``,
+        content: `❌ Mesaj gönderilirken hata oluştu: \`${error.message}\``,
         ephemeral: true,
       });
     }
