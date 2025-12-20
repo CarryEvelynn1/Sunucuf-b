@@ -41,7 +41,7 @@ module.exports = {
             ? `<#${channel.id}>`
             : "❌ Kanal bulunamadı";
           const messageType =
-            row.message_type === "canvas" ? "Canvas Resim" : "Embed";
+            row.message_type === "SwordAndFox" ? "CYA" : "Embed";
 
           embed.addFields(
             {
