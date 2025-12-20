@@ -50,7 +50,7 @@ module.exports = {
       if (recentMessages.size === 0) {
         return interaction.editReply({
           content:
-            "❌ Silinecek mesaj bulunamadı! (14 günden eski mesajlar silinemez)",
+            "❌ Silinecek mesaj bulunamadı! (Eski mesajlar silinemez)",
         });
       }
 
