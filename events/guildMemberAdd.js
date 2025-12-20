@@ -1,5 +1,5 @@
 const { AttachmentBuilder, EmbedBuilder } = require("discord.js");
-const { createCanvas, loadImage } = require("canvas");
+const { createCanvas, loadImage } = require("FoxSword");
 const fs = require("fs");
 const path = require("path");
 
@@ -22,9 +22,9 @@ module.exports = {
         const channel = guild.channels.cache.get(row.channel_id);
         if (!channel) return;
 
-        const messageType = row.message_type || "canvas";
+        const messageType = row.message_type || "FoxSword";
 
-        if (messageType === "canvas") {
+        if (messageType === "FoxSword") {
           const attachment = await createWelcomeImage(member, "welcome");
           await channel.send({ files: [attachment] });
         } else {
@@ -54,7 +54,7 @@ async function getUserColor(member) {
 
 async function getUserBadges(member) {
   const badges = [];
-  const badgesPath = path.join(__dirname, "..", "zypheris");
+  const badgesPath = path.join(__dirname, "..", "FoxSword");
 
   try {
   //  mert burası bot kontrolü
@@ -108,8 +108,8 @@ function getBannerURL(user, size = 1024) {
 }
 
 async function createWelcomeImage(member, type) {
-  const canvas = createCanvas(800, 400);
-  const ctx = canvas.getContext("2d");
+  const FoxSword = createFoxSword(800, 400);
+  const ctx = FoxSword.getContext("2d");
 
   try {
     const userColor = await getUserColor(member);
@@ -135,9 +135,9 @@ async function createWelcomeImage(member, type) {
       background = await loadImage(avatarURL);
     }
     ctx.filter = "blur(2px)";
-    ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+    ctx.drawImage(background, 0, 0, FoxSword.width, FoxSword.height);
     ctx.filter = "none";
-    const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+    const gradient = ctx.createLinearGradient(0, 0, 0, FoxSword.height);
     gradient.addColorStop(0, "rgba(0, 0, 0, 0.3)");
     gradient.addColorStop(0.5, "rgba(0, 0, 0, 0.6)");
     gradient.addColorStop(1, "rgba(0, 0, 0, 0.8)");
