@@ -53,7 +53,7 @@ async function getUserColor(member) {
 
 async function getUserBadges(member) {
   const badges = [];
-  const badgesPath = path.join(__dirname, "..", "zypheris");
+  const badgesPath = path.join(__dirname, "..", "SwordAndFox");
 
   try {
     if (member.user.bot) {
@@ -426,7 +426,7 @@ async function createGoodbyeEmbed(member, type) {
   const embed = new EmbedBuilder()
     .setColor(userColor)
     .setTitle(`${member.user.username} | ${member.id}`)
-    .setDescription("**Sunucudan ayrıldı!**")
+    .setDescription("**Sunucudan ayrıldı😭!**")
     .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
     .addFields(
       { name: "• Kullanıcı:", value: `<@${member.id}>`, inline: true },
@@ -598,9 +598,9 @@ async function createGoodbyeEmbed(member, type) {
     ctx.fillText(dateText, 360, 218);
 
     const imageAttachment = new AttachmentBuilder(canvas.toBuffer(), {
-      name: "zypheris.png",
+      name: "SwordAndFox.png",
     });
-    embed.setImage("attachment://zypheris.png");
+    embed.setImage("attachment://SwordAndFox.png");
 
     return { embeds: [embed], files: [imageAttachment] };
   } catch (error) {
