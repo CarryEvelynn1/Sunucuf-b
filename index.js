@@ -13,7 +13,7 @@ const client = new Client({
 });
 client.commands = new Collection();
 client.config = config;
-const db = new sqlite3.Database("./zypheris.db");
+const db = new sqlite3.Database("./SwordAndFox.db");
 client.db = db;
 db.serialize(() => {
   db.run(`CREATE TABLE IF NOT EXISTS guild_settings (
