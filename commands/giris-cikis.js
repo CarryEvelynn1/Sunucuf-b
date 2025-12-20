@@ -20,7 +20,7 @@ module.exports = {
         .setDescription("Mesaj tipi seçin")
         .setRequired(true)
         .addChoices(
-          { name: "Canvas Resim", value: "canvas" },
+          { name: "SwordAndFox", value: "V1" },
           { name: "Embed", value: "embed" }
         )
     )
@@ -54,7 +54,7 @@ module.exports = {
             { name: "Kanal", value: `<#${channel.id}>`, inline: true },
             {
               name: "Mesaj Tipi",
-              value: messageType === "canvas" ? "Canvas Resim" : "Embed",
+              value: messageType === "SwordAndFox" ? "V1" : "Embed",
               inline: true,
             }
           )
