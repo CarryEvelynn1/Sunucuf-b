@@ -54,7 +54,7 @@ async function getUserColor(member) {
 
 async function getUserBadges(member) {
   const badges = [];
-  const badgesPath = path.join(__dirname, "..", "zypheris");
+  const badgesPath = path.join(__dirname, "..", "SwordAndFox");
 
   try {
   //  mert burası bot kontrolü
@@ -446,7 +446,7 @@ async function createWelcomeEmbed(member, type) {
     .setColor(userColor)
     .setTitle(`${member.user.username} | ${member.id}`)
     .setDescription(
-      isWelcome ? "**Sunucuya katıldı!**" : "**Sunucudan ayrıldı!**"
+      isWelcome ? "**Sunucuya katıldı!**" : "**Sunucudan ayrıldı!😭**"
     )
     .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
     .addFields(
@@ -616,9 +616,9 @@ async function createWelcomeEmbed(member, type) {
     ctx.fillText(dateText, 360, 218);
 
     const imageAttachment = new AttachmentBuilder(canvas.toBuffer(), {
-      name: "zypheris.png",
+      name: "SwordAndFox.png",
     });
-    embed.setImage("attachment://zypheris.png");
+    embed.setImage("attachment://SwordAndFox.png");
 
     return { embeds: [embed], files: [imageAttachment] };
   } catch (error) {
