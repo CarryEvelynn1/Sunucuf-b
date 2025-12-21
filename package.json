@@ -1,0 +1,16 @@
+{
+  "name": "new-guard-bot",
+  "version": "1.0.0",
+  "description": "Swertcode And Fox - Guard System",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": ["discord", "guard", "security"],
+  "author": "Swertcode And Fox",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.16.1",
+    "mongoose": "^8.8.0"
+  }
+}
