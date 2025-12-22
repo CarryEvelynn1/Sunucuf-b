@@ -2,43 +2,83 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <title>🎛 Welcome Bot Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code SwertAndFox | <%= sunucuAdi %> Panel</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-  <nav class="navbar">
-  <img src="<%= sunucuPFP %>" alt="Sunucu Logosu" class="logo" />
-  <span class="server-name">🌐 <%= sunucuAdi %></span>
-</nav>
 
+  <nav class="navbar">
+    <div class="nav-content">
+      <div class="logo-area">
+        <% if (sunucuPFP) { %>
+          <img src="<%= sunucuPFP %>" alt="Sunucu Logosu" class="logo" />
+        <% } else { %>
+          <i class="fas fa-fox logo-icon"></i> <% } %>
+        <span class="server-name">Code SwertAndFox <span>| <%= sunucuAdi %></span></span>
+      </div>
+      <div class="nav-links">
+        <span class="version-badge">v2.5.0</span>
+      </div>
+    </div>
+  </nav>
 
   <div class="container">
-    <h1>🎛 Welcome Bot Ayarları</h1>
+    <div class="form-header">
+      <i class="fas fa-fox main-fox-icon"></i>
+      <h1>🎛 Bot Yapılandırması</h1>
+      <p>Sunucunuz için ses ve rol ayarlarını optimize edin.</p>
+    </div>
 
     <% if (typeof success !== 'undefined') { %>
-      <div class="success-message">✅ <%= success %></div>
+      <div class="success-message">
+        <i class="fas fa-check-circle"></i> <%= success %>
+      </div>
     <% } %>
 
-    <form action="/kaydet" method="POST" enctype="multipart/form-data">
+    <form action="/kaydet" method="POST" enctype="multipart/form-data" class="modern-form">
       
+      <div class="input-group">
+        <label><i class="fas fa-volume-up"></i> Ses Kanal ID:</label>
+        <input type="text" name="kanalID" value="<%= ayar.kanalID %>" placeholder="Örn: 123456789..." required />
+      </div>
 
-      <label>🔊 Ses Kanal ID:</label>
-      <input type="text" name="kanalID" value="<%= ayar.kanalID %>" required />
+      <div class="grid-row">
+        <div class="input-group">
+          <label><i class="fas fa-user-slash"></i> Kayıtsız Rol ID:</label>
+          <input type="text" name="kayitsizRolID" value="<%= ayar.kayitsizRolID %>" required />
+        </div>
 
-      <label>🕵️‍♂️ Kayıtsız Rol ID:</label>
-      <input type="text" name="kayitsizRolID" value="<%= ayar.kayitsizRolID %>" required />
+        <div class="input-group">
+          <label><i class="fas fa-user-shield"></i> Yetkili Rol ID:</label>
+          <input type="text" name="yetkiliRolID" value="<%= ayar.yetkiliRolID %>" required />
+        </div>
+      </div>
 
-      <label>🛡️ Yetkili Rol ID:</label>
-      <input type="text" name="yetkiliRolID" value="<%= ayar.yetkiliRolID %>" required />
+      <div class="file-section">
+        <div class="input-group">
+          <label><i class="fas fa-file-audio"></i> Kayıtsız Ses Dosyası</label>
+          <input type="file" name="kayitsizSes" accept=".mp3,.wav" />
+          <small>Mevcut: <%= ayar.aktifDosya || 'aktif.mp3' %></small>
+        </div>
 
-      <label>📂 Kayıtsız Ses (.mp3/.wav):</label>
-      <input type="file" name="kayitsizSes" />
+        <div class="input-group">
+          <label><i class="fas fa-file-audio"></i> Yetkili Ses Dosyası</label>
+          <input type="file" name="yetkiliSes" accept=".mp3,.wav" />
+          <small>Mevcut: <%= ayar.yetkiliDosya || 'yetkili.mp3' %></small>
+        </div>
+      </div>
 
-      <label>📂 Yetkili Ses (.mp3/.wav):</label>
-      <input type="file" name="yetkiliSes" />
-
-      <button type="submit">💾 Ayarları Kaydet</button>
+      <button type="submit" class="btn-save">
+        <i class="fas fa-save"></i> Değişiklikleri Uygula
+      </button>
     </form>
+
+    <div class="footer-signature">
+      <p>Powered by <span>Code SwertAndFox</span></p>
+    </div>
   </div>
+
 </body>
 </html>
